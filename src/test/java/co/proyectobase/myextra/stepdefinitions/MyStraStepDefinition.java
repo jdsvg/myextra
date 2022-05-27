@@ -1,6 +1,8 @@
 package co.proyectobase.myextra.stepdefinitions;
 
+import co.proyectobase.myextra.model.Credenciales;
 import co.proyectobase.myextra.tasks.Abrir;
+import co.proyectobase.myextra.tasks.Loguearse;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
@@ -30,7 +32,8 @@ public class MyStraStepDefinition {
 
 
     @Cuando("^el realiza la autenticación con el usuario$")
-    public void elRealizaLaAutenticaciónConElUsuario(List arg1) {
+    public void elRealizaLaAutenticaciónConElUsuario(List<Credenciales> datos) {
+        john.attemptsTo(Loguearse.enMyExtra(datos));
     }
 
     @Cuando("^el navega al menú$")
